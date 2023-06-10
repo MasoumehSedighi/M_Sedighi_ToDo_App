@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f7f7f7;
+          font-family: Arial, sans-serif;
+        }
+    
+        .box {
+          width: 400px;
+          padding: 30px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+    
+        .box h2 {
+          margin-top: 0;
+          position: relative;
+          font-size: 40px;
+          color: #333;
+          text-transform: uppercase;
+        }
+    
+        .box h2:before,
+        .box h2:after {
+          content: "";
+          position: absolute;
+          width: 30%;
+          height: 3px;
+          background-color: #F39C12;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+    
+        .box h2:before {
+          left: -35%;
+        }
+    
+        .box h2:after {
+          right: -35%;
+        }
+    
+        .box .form-group {
+          margin-top: 60px;
+        }
+    
+        .box input[type="email"],
+        .box input[type="password"] {
+          width: 80%;
+          padding: 12px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          outline: none;
+        }
+    
+        .box .buttons {
+          display: flex;
+          justify-content: center;
+          margin-top: 30px;
+        }
+    
+        .box button {
+          padding: 12px 20px;
+          font-size: 18px;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          outline: none;
+          border-radius: 5px;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+    
+        .box button.login {
+          background-color: #1abc9c;
+          margin-right: 10px;
+        }
+    
+        .box button.logout {
+          background-color: #e74c3c;
+          margin-left: 10px;
+        }
+    
+        .box button:hover {
+          opacity: 0.8;
+          transform: translateY(-2px);
+        }
+    
+        .box button:focus {
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+      </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Todo</h2>
+        <form method="post", class="form-group">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="id_username">Email</label>
+            <input type="email" name="username" placeholder="Email" required id="id_username">
+          </div>
+          <div class="form-group">
+            <label for="id_password">Email</label>
+            <input type="password" name="password" placeholder="Password" required id="id_password">
+          </div>
+          <div class="buttons">
+            <button class="login">Login</button>
+          </div>
+        </form>
+        </div>
+</body>
+</html>
