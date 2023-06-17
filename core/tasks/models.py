@@ -11,7 +11,7 @@ class Task(models.Model):
     '''
     owner = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    created_date = models.DateTimeField()
+    created_date = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False)
 
     def __str__(self):
