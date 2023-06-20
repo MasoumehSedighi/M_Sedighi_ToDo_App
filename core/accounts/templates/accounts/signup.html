@@ -121,6 +121,8 @@
           <button class="register">Register</button>
         </div>
     </form>
+    </br>
+    <p> I have an account then <a href="{% url "accounts:login" %}"> Login </a></p>
     {% if form.errors %}
     <div class="alert alert-warning">
         <h6>Please fix the following errors</h6>

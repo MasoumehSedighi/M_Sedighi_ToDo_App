@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Task</title>
+    <title>Edit Task</title>
     <style>
         body {
           display: flex;
@@ -19,16 +19,36 @@
           padding: 30px;
           background-color: #fff;
           border-radius: 10px;
-          box-shadow: 0 0 20px  hsl(120, 100%, 25%);
+          box-shadow: 0 0 20px rgba(56, 81, 227, 0.444);
           text-align: center;
         }
-        .box h2 {
+        .box h3 {
           margin-top: 0;
           position: relative;
-          font-size: 30px;
-          color: #FF8C00;
+          font-size: 40px;
+          color: #333;
           text-transform: uppercase;
-        }    
+        }
+    
+        .box h3:before,
+        .box h3:after {
+          content: "";
+          position: absolute;
+          width: 30%;
+          height: 3px;
+          background-color: #F39C12;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+    
+        .box h3:before {
+          left: -35%;
+        }
+    
+        .box h3:after {
+          right: -35%;
+        }
+    
         .box .buttons {
         display: flex;
         justify-content: center;
@@ -49,7 +69,7 @@
         }
 
         .box button.add {
-        background-color: #1abc9c;
+        background-color: #2bff5d;
         margin-right: 10px;
         }
         .box button:hover {
@@ -76,7 +96,7 @@
 </head>
 <body>
     <div class="box">
-        <h2>Do it</h2>
+        <h3>Edit Task</h3>
         <form action="" method = "post">
             {% csrf_token %}
             <div class="form-group">
@@ -86,7 +106,7 @@
           <div class="button">
             <button type="submit" class="add">Submit</button>
           </div>
-        </form> 
+          </form> 
     </div>
 </body>
 </html>

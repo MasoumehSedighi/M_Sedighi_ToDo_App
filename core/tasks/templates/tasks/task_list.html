@@ -21,7 +21,7 @@
         padding: 30px;
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 0 20px rgba(56, 81, 227, 0.444);
+        box-shadow: 0 0 20px  hsl(120, 100%, 25%);
         text-align: left;
       }
       ul li.checked {
@@ -31,23 +31,34 @@
 </head>
 <body>
   <div class="box">
-    <p> Add new Task <span> <a href="{% url 'tasks:task-add'%}"><i class="bi bi-patch-plus"></i></i></a></span></p>
+    <div class="row"><a class="btn btn-primary btn-sm" href="{% url 'accounts:logout'%}"><i class="bi bi-box-arrow-right"></i></a></div>
+    
+  </br>
+  </br>
+    <div class="row">
+    <p class="col fw-bold fs-3 text-warning"> Do it :</p>
+    <div class="col-md-auto"> <a class="btn btn-warning" href="{% url 'tasks:task-add'%}"><i class="bi bi-plus-lg"></i></a></div>
+    
+    </div>
     <hr>
-    <ul>
+    <ul class="row">
       {% for task in tasks %}
         {% if task.done %} 
-          <li class="checked">{{task.name}}</li>
-          <span>                    
-            <a href="{% url 'tasks:task-delete' pk=task.id %}"><i class="bi bi-trash"></i></a>
+          <li class="col fw-bold fs-5 text-secondary checked">{{task.name}}</li>
+          <span  class="col-md-auto">                    
+            <a  type="button" class=" btn btn-danger btn-sm" href="{% url 'tasks:task-delete' pk=task.id %}"><i class="bi bi-trash"></i></a>
           </span>
         {% else %}
-          <li>{{task.name}}</li>
-          <span>                    
-            <a href="{% url 'tasks:task-delete' pk=task.id %}"><i class="bi bi-trash"></i></a><a href="{% url 'tasks:task-update' pk=task.id %}"> Done</a>
+          <li  class="col fw-bold fs-5">{{task.name}}</li>
+          <span class="col-md-auto">  
+            <a type="button" class="btn btn-success btn-sm" href="{% url 'tasks:task-done' pk=task.id %}"><i class="bi bi-check-lg"></i></a>
+            <a type="button" class="btn btn-secondary btn-sm" href="{% url 'tasks:task-update' pk=task.id %}"><i class="bi bi-pen"></i></a>                  
+            <a  type="button" class="btn btn-danger btn-sm" href="{% url 'tasks:task-delete' pk=task.id %}"><i class="bi bi-trash"></i></a>
           </span>
         {% endif %} 
-    </br>
-    <hr>
+      </br>
+      </br>
+      <hr>
       {% endfor %}
     </ul>  
   </div>
